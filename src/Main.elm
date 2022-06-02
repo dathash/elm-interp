@@ -11,6 +11,7 @@ type ExprC
 
 
 
+--    | LamC (List String) ExprC
 -- | MaybeIfC ExprC ExprC ExprC
 -- type MaybeIfC
 --   = IfC { cond : ExprC, ifT : ExprC, ifF : ExprC }
@@ -27,6 +28,16 @@ type Value
 
 
 
+--     | CloV (List String) ExprC Env
+-- type alias Env =
+--     {
+--         bindings : (List Bindings)
+--     }
+-- type alias Bindings =
+--     {
+--         name : String,
+--         value : Value
+--     }
 -- CloV
 
 
@@ -71,6 +82,8 @@ interp expr =
 
 
 
+-- LamC params body ->
+--     CloV params body env
 -- Converts a JILI5 Value to its String representation.
 
 
