@@ -12,16 +12,19 @@ main =
     Test.Runner.Node.run
         { runs = 100
         , report = ConsoleReport UseColor
-        , seed = 47356781986363
-        , processes = 8
+        , seed = 10600922488107
+        , processes = 10
         , globs =
             []
         , paths =
-            [ "/Users/alexhartford/School/430/a9/tests/Tests.elm"
+            [ "/Users/salito/Documents/GitHub/elm-interp/tests/Tests.elm"
             ]
         }
         [ ( "Tests"
           , [ Test.Runner.Node.check Tests.interpTests
+            , Test.Runner.Node.check Tests.envLookupTests
+            , Test.Runner.Node.check Tests.envExtendTests
+            , Test.Runner.Node.check Tests.interpAllArgsTests
             , Test.Runner.Node.check Tests.serializeTests
             ]
           )

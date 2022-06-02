@@ -2607,56 +2607,63 @@ var $author$project$Test$Runner$Node$checkHelperReplaceMe___ = function (_v0) {
 		})('The regex for replacing this Debug.todo with some real code must have failed since you see this message!\n\nPlease report this bug: https://github.com/rtfeldman/node-test-runner/issues/new\n');
 };
 var $author$project$Test$Runner$Node$check = value => value && value.__elmTestSymbol === __elmTestSymbol ? $elm$core$Maybe$Just(value) : $elm$core$Maybe$Nothing;
+var $author$project$Main$Binding = F2(
+	function (name, value) {
+		return {name: name, value: value};
+	});
+var $author$project$Main$Env = function (bindings) {
+	return {bindings: bindings};
+};
+var $author$project$Main$OpV = function (a) {
+	return {$: 'OpV', a: a};
+};
+var $author$project$Main$StringV = function (a) {
+	return {$: 'StringV', a: a};
+};
+var $elm$core$Basics$apL = F2(
+	function (f, x) {
+		return f(x);
+	});
+var $elm$core$Basics$apR = F2(
+	function (x, f) {
+		return f(x);
+	});
+var $elm_explorations$test$Test$Runner$Failure$BadDescription = {$: 'BadDescription'};
+var $elm_explorations$test$Test$Internal$Batch = function (a) {
+	return {__elmTestSymbol: __elmTestSymbol, $: 'Batch', a: a};
+};
+var $elm_explorations$test$Test$Runner$Failure$DuplicatedName = {$: 'DuplicatedName'};
+var $elm_explorations$test$Test$Runner$Failure$EmptyList = {$: 'EmptyList'};
+var $elm_explorations$test$Test$Runner$Failure$Invalid = function (a) {
+	return {$: 'Invalid', a: a};
+};
+var $elm_explorations$test$Test$Internal$Labeled = F2(
+	function (a, b) {
+		return {__elmTestSymbol: __elmTestSymbol, $: 'Labeled', a: a, b: b};
+	});
+var $elm$core$Basics$append = _Utils_append;
 var $elm$core$Result$Err = function (a) {
 	return {$: 'Err', a: a};
 };
-var $elm$json$Json$Decode$Failure = F2(
-	function (a, b) {
-		return {$: 'Failure', a: a, b: b};
-	});
-var $elm$json$Json$Decode$Field = F2(
-	function (a, b) {
-		return {$: 'Field', a: a, b: b};
-	});
-var $elm$json$Json$Decode$Index = F2(
-	function (a, b) {
-		return {$: 'Index', a: a, b: b};
-	});
 var $elm$core$Result$Ok = function (a) {
 	return {$: 'Ok', a: a};
 };
-var $elm$json$Json$Decode$OneOf = function (a) {
-	return {$: 'OneOf', a: a};
-};
-var $elm$core$Basics$False = {$: 'False'};
+var $elm$core$Result$andThen = F2(
+	function (callback, result) {
+		if (result.$ === 'Ok') {
+			var value = result.a;
+			return callback(value);
+		} else {
+			var msg = result.a;
+			return $elm$core$Result$Err(msg);
+		}
+	});
+var $elm$core$Basics$composeR = F3(
+	function (f, g, x) {
+		return g(
+			f(x));
+	});
 var $elm$core$Basics$add = _Basics_add;
-var $elm$core$Maybe$Just = function (a) {
-	return {$: 'Just', a: a};
-};
-var $elm$core$Maybe$Nothing = {$: 'Nothing'};
-var $elm$core$String$all = _String_all;
-var $elm$core$Basics$and = _Basics_and;
-var $elm$core$Basics$append = _Utils_append;
-var $elm$json$Json$Encode$encode = _Json_encode;
-var $elm$core$String$fromInt = _String_fromNumber;
-var $elm$core$String$join = F2(
-	function (sep, chunks) {
-		return A2(
-			_String_join,
-			sep,
-			_List_toArray(chunks));
-	});
-var $elm$core$String$split = F2(
-	function (sep, string) {
-		return _List_fromArray(
-			A2(_String_split, sep, string));
-	});
-var $elm$json$Json$Decode$indent = function (str) {
-	return A2(
-		$elm$core$String$join,
-		'\n    ',
-		A2($elm$core$String$split, '\n', str));
-};
 var $elm$core$List$foldl = F3(
 	function (func, acc, list) {
 		foldl:
@@ -2676,379 +2683,10 @@ var $elm$core$List$foldl = F3(
 			}
 		}
 	});
-var $elm$core$List$length = function (xs) {
-	return A3(
-		$elm$core$List$foldl,
-		F2(
-			function (_v0, i) {
-				return i + 1;
-			}),
-		0,
-		xs);
-};
-var $elm$core$List$map2 = _List_map2;
-var $elm$core$Basics$le = _Utils_le;
-var $elm$core$Basics$sub = _Basics_sub;
-var $elm$core$List$rangeHelp = F3(
-	function (lo, hi, list) {
-		rangeHelp:
-		while (true) {
-			if (_Utils_cmp(lo, hi) < 1) {
-				var $temp$lo = lo,
-					$temp$hi = hi - 1,
-					$temp$list = A2($elm$core$List$cons, hi, list);
-				lo = $temp$lo;
-				hi = $temp$hi;
-				list = $temp$list;
-				continue rangeHelp;
-			} else {
-				return list;
-			}
-		}
-	});
-var $elm$core$List$range = F2(
-	function (lo, hi) {
-		return A3($elm$core$List$rangeHelp, lo, hi, _List_Nil);
-	});
-var $elm$core$List$indexedMap = F2(
-	function (f, xs) {
-		return A3(
-			$elm$core$List$map2,
-			f,
-			A2(
-				$elm$core$List$range,
-				0,
-				$elm$core$List$length(xs) - 1),
-			xs);
-	});
-var $elm$core$Char$toCode = _Char_toCode;
-var $elm$core$Char$isLower = function (_char) {
-	var code = $elm$core$Char$toCode(_char);
-	return (97 <= code) && (code <= 122);
-};
-var $elm$core$Char$isUpper = function (_char) {
-	var code = $elm$core$Char$toCode(_char);
-	return (code <= 90) && (65 <= code);
-};
-var $elm$core$Basics$or = _Basics_or;
-var $elm$core$Char$isAlpha = function (_char) {
-	return $elm$core$Char$isLower(_char) || $elm$core$Char$isUpper(_char);
-};
-var $elm$core$Char$isDigit = function (_char) {
-	var code = $elm$core$Char$toCode(_char);
-	return (code <= 57) && (48 <= code);
-};
-var $elm$core$Char$isAlphaNum = function (_char) {
-	return $elm$core$Char$isLower(_char) || ($elm$core$Char$isUpper(_char) || $elm$core$Char$isDigit(_char));
-};
+var $elm$core$Basics$gt = _Utils_gt;
 var $elm$core$List$reverse = function (list) {
 	return A3($elm$core$List$foldl, $elm$core$List$cons, _List_Nil, list);
 };
-var $elm$core$String$uncons = _String_uncons;
-var $elm$json$Json$Decode$errorOneOf = F2(
-	function (i, error) {
-		return '\n\n(' + ($elm$core$String$fromInt(i + 1) + (') ' + $elm$json$Json$Decode$indent(
-			$elm$json$Json$Decode$errorToString(error))));
-	});
-var $elm$json$Json$Decode$errorToString = function (error) {
-	return A2($elm$json$Json$Decode$errorToStringHelp, error, _List_Nil);
-};
-var $elm$json$Json$Decode$errorToStringHelp = F2(
-	function (error, context) {
-		errorToStringHelp:
-		while (true) {
-			switch (error.$) {
-				case 'Field':
-					var f = error.a;
-					var err = error.b;
-					var isSimple = function () {
-						var _v1 = $elm$core$String$uncons(f);
-						if (_v1.$ === 'Nothing') {
-							return false;
-						} else {
-							var _v2 = _v1.a;
-							var _char = _v2.a;
-							var rest = _v2.b;
-							return $elm$core$Char$isAlpha(_char) && A2($elm$core$String$all, $elm$core$Char$isAlphaNum, rest);
-						}
-					}();
-					var fieldName = isSimple ? ('.' + f) : ('[\'' + (f + '\']'));
-					var $temp$error = err,
-						$temp$context = A2($elm$core$List$cons, fieldName, context);
-					error = $temp$error;
-					context = $temp$context;
-					continue errorToStringHelp;
-				case 'Index':
-					var i = error.a;
-					var err = error.b;
-					var indexName = '[' + ($elm$core$String$fromInt(i) + ']');
-					var $temp$error = err,
-						$temp$context = A2($elm$core$List$cons, indexName, context);
-					error = $temp$error;
-					context = $temp$context;
-					continue errorToStringHelp;
-				case 'OneOf':
-					var errors = error.a;
-					if (!errors.b) {
-						return 'Ran into a Json.Decode.oneOf with no possibilities' + function () {
-							if (!context.b) {
-								return '!';
-							} else {
-								return ' at json' + A2(
-									$elm$core$String$join,
-									'',
-									$elm$core$List$reverse(context));
-							}
-						}();
-					} else {
-						if (!errors.b.b) {
-							var err = errors.a;
-							var $temp$error = err,
-								$temp$context = context;
-							error = $temp$error;
-							context = $temp$context;
-							continue errorToStringHelp;
-						} else {
-							var starter = function () {
-								if (!context.b) {
-									return 'Json.Decode.oneOf';
-								} else {
-									return 'The Json.Decode.oneOf at json' + A2(
-										$elm$core$String$join,
-										'',
-										$elm$core$List$reverse(context));
-								}
-							}();
-							var introduction = starter + (' failed in the following ' + ($elm$core$String$fromInt(
-								$elm$core$List$length(errors)) + ' ways:'));
-							return A2(
-								$elm$core$String$join,
-								'\n\n',
-								A2(
-									$elm$core$List$cons,
-									introduction,
-									A2($elm$core$List$indexedMap, $elm$json$Json$Decode$errorOneOf, errors)));
-						}
-					}
-				default:
-					var msg = error.a;
-					var json = error.b;
-					var introduction = function () {
-						if (!context.b) {
-							return 'Problem with the given value:\n\n';
-						} else {
-							return 'Problem with the value at json' + (A2(
-								$elm$core$String$join,
-								'',
-								$elm$core$List$reverse(context)) + ':\n\n    ');
-						}
-					}();
-					return introduction + ($elm$json$Json$Decode$indent(
-						A2($elm$json$Json$Encode$encode, 4, json)) + ('\n\n' + msg));
-			}
-		}
-	});
-var $elm$core$Array$branchFactor = 32;
-var $elm$core$Array$Array_elm_builtin = F4(
-	function (a, b, c, d) {
-		return {$: 'Array_elm_builtin', a: a, b: b, c: c, d: d};
-	});
-var $elm$core$Elm$JsArray$empty = _JsArray_empty;
-var $elm$core$Basics$ceiling = _Basics_ceiling;
-var $elm$core$Basics$fdiv = _Basics_fdiv;
-var $elm$core$Basics$logBase = F2(
-	function (base, number) {
-		return _Basics_log(number) / _Basics_log(base);
-	});
-var $elm$core$Basics$toFloat = _Basics_toFloat;
-var $elm$core$Array$shiftStep = $elm$core$Basics$ceiling(
-	A2($elm$core$Basics$logBase, 2, $elm$core$Array$branchFactor));
-var $elm$core$Array$empty = A4($elm$core$Array$Array_elm_builtin, 0, $elm$core$Array$shiftStep, $elm$core$Elm$JsArray$empty, $elm$core$Elm$JsArray$empty);
-var $elm$core$Elm$JsArray$initialize = _JsArray_initialize;
-var $elm$core$Array$Leaf = function (a) {
-	return {$: 'Leaf', a: a};
-};
-var $elm$core$Basics$apL = F2(
-	function (f, x) {
-		return f(x);
-	});
-var $elm$core$Basics$apR = F2(
-	function (x, f) {
-		return f(x);
-	});
-var $elm$core$Basics$eq = _Utils_equal;
-var $elm$core$Basics$floor = _Basics_floor;
-var $elm$core$Elm$JsArray$length = _JsArray_length;
-var $elm$core$Basics$gt = _Utils_gt;
-var $elm$core$Basics$max = F2(
-	function (x, y) {
-		return (_Utils_cmp(x, y) > 0) ? x : y;
-	});
-var $elm$core$Basics$mul = _Basics_mul;
-var $elm$core$Array$SubTree = function (a) {
-	return {$: 'SubTree', a: a};
-};
-var $elm$core$Elm$JsArray$initializeFromList = _JsArray_initializeFromList;
-var $elm$core$Array$compressNodes = F2(
-	function (nodes, acc) {
-		compressNodes:
-		while (true) {
-			var _v0 = A2($elm$core$Elm$JsArray$initializeFromList, $elm$core$Array$branchFactor, nodes);
-			var node = _v0.a;
-			var remainingNodes = _v0.b;
-			var newAcc = A2(
-				$elm$core$List$cons,
-				$elm$core$Array$SubTree(node),
-				acc);
-			if (!remainingNodes.b) {
-				return $elm$core$List$reverse(newAcc);
-			} else {
-				var $temp$nodes = remainingNodes,
-					$temp$acc = newAcc;
-				nodes = $temp$nodes;
-				acc = $temp$acc;
-				continue compressNodes;
-			}
-		}
-	});
-var $elm$core$Tuple$first = function (_v0) {
-	var x = _v0.a;
-	return x;
-};
-var $elm$core$Array$treeFromBuilder = F2(
-	function (nodeList, nodeListSize) {
-		treeFromBuilder:
-		while (true) {
-			var newNodeSize = $elm$core$Basics$ceiling(nodeListSize / $elm$core$Array$branchFactor);
-			if (newNodeSize === 1) {
-				return A2($elm$core$Elm$JsArray$initializeFromList, $elm$core$Array$branchFactor, nodeList).a;
-			} else {
-				var $temp$nodeList = A2($elm$core$Array$compressNodes, nodeList, _List_Nil),
-					$temp$nodeListSize = newNodeSize;
-				nodeList = $temp$nodeList;
-				nodeListSize = $temp$nodeListSize;
-				continue treeFromBuilder;
-			}
-		}
-	});
-var $elm$core$Array$builderToArray = F2(
-	function (reverseNodeList, builder) {
-		if (!builder.nodeListSize) {
-			return A4(
-				$elm$core$Array$Array_elm_builtin,
-				$elm$core$Elm$JsArray$length(builder.tail),
-				$elm$core$Array$shiftStep,
-				$elm$core$Elm$JsArray$empty,
-				builder.tail);
-		} else {
-			var treeLen = builder.nodeListSize * $elm$core$Array$branchFactor;
-			var depth = $elm$core$Basics$floor(
-				A2($elm$core$Basics$logBase, $elm$core$Array$branchFactor, treeLen - 1));
-			var correctNodeList = reverseNodeList ? $elm$core$List$reverse(builder.nodeList) : builder.nodeList;
-			var tree = A2($elm$core$Array$treeFromBuilder, correctNodeList, builder.nodeListSize);
-			return A4(
-				$elm$core$Array$Array_elm_builtin,
-				$elm$core$Elm$JsArray$length(builder.tail) + treeLen,
-				A2($elm$core$Basics$max, 5, depth * $elm$core$Array$shiftStep),
-				tree,
-				builder.tail);
-		}
-	});
-var $elm$core$Basics$idiv = _Basics_idiv;
-var $elm$core$Basics$lt = _Utils_lt;
-var $elm$core$Array$initializeHelp = F5(
-	function (fn, fromIndex, len, nodeList, tail) {
-		initializeHelp:
-		while (true) {
-			if (fromIndex < 0) {
-				return A2(
-					$elm$core$Array$builderToArray,
-					false,
-					{nodeList: nodeList, nodeListSize: (len / $elm$core$Array$branchFactor) | 0, tail: tail});
-			} else {
-				var leaf = $elm$core$Array$Leaf(
-					A3($elm$core$Elm$JsArray$initialize, $elm$core$Array$branchFactor, fromIndex, fn));
-				var $temp$fn = fn,
-					$temp$fromIndex = fromIndex - $elm$core$Array$branchFactor,
-					$temp$len = len,
-					$temp$nodeList = A2($elm$core$List$cons, leaf, nodeList),
-					$temp$tail = tail;
-				fn = $temp$fn;
-				fromIndex = $temp$fromIndex;
-				len = $temp$len;
-				nodeList = $temp$nodeList;
-				tail = $temp$tail;
-				continue initializeHelp;
-			}
-		}
-	});
-var $elm$core$Basics$remainderBy = _Basics_remainderBy;
-var $elm$core$Array$initialize = F2(
-	function (len, fn) {
-		if (len <= 0) {
-			return $elm$core$Array$empty;
-		} else {
-			var tailLen = len % $elm$core$Array$branchFactor;
-			var tail = A3($elm$core$Elm$JsArray$initialize, tailLen, len - tailLen, fn);
-			var initialFromIndex = (len - tailLen) - $elm$core$Array$branchFactor;
-			return A5($elm$core$Array$initializeHelp, fn, initialFromIndex, len, _List_Nil, tail);
-		}
-	});
-var $elm$core$Basics$True = {$: 'True'};
-var $elm$core$Result$isOk = function (result) {
-	if (result.$ === 'Ok') {
-		return true;
-	} else {
-		return false;
-	}
-};
-var $elm$json$Json$Decode$int = _Json_decodeInt;
-var $author$project$Main$BoolC = function (a) {
-	return {$: 'BoolC', a: a};
-};
-var $author$project$Main$BoolV = function (a) {
-	return {$: 'BoolV', a: a};
-};
-var $author$project$Main$NumC = function (a) {
-	return {$: 'NumC', a: a};
-};
-var $author$project$Main$NumV = function (a) {
-	return {$: 'NumV', a: a};
-};
-var $author$project$Main$StringC = function (a) {
-	return {$: 'StringC', a: a};
-};
-var $author$project$Main$StringV = function (a) {
-	return {$: 'StringV', a: a};
-};
-var $elm_explorations$test$Test$Runner$Failure$BadDescription = {$: 'BadDescription'};
-var $elm_explorations$test$Test$Internal$Batch = function (a) {
-	return {__elmTestSymbol: __elmTestSymbol, $: 'Batch', a: a};
-};
-var $elm_explorations$test$Test$Runner$Failure$DuplicatedName = {$: 'DuplicatedName'};
-var $elm_explorations$test$Test$Runner$Failure$EmptyList = {$: 'EmptyList'};
-var $elm_explorations$test$Test$Runner$Failure$Invalid = function (a) {
-	return {$: 'Invalid', a: a};
-};
-var $elm_explorations$test$Test$Internal$Labeled = F2(
-	function (a, b) {
-		return {__elmTestSymbol: __elmTestSymbol, $: 'Labeled', a: a, b: b};
-	});
-var $elm$core$Result$andThen = F2(
-	function (callback, result) {
-		if (result.$ === 'Ok') {
-			var value = result.a;
-			return callback(value);
-		} else {
-			var msg = result.a;
-			return $elm$core$Result$Err(msg);
-		}
-	});
-var $elm$core$Basics$composeR = F3(
-	function (f, g, x) {
-		return g(
-			f(x));
-	});
 var $elm$core$List$foldrHelper = F4(
 	function (fn, acc, ctr, ls) {
 		if (!ls.b) {
@@ -3258,6 +2896,12 @@ var $elm$core$Set$insert = F2(
 		return $elm$core$Set$Set_elm_builtin(
 			A3($elm$core$Dict$insert, key, _Utils_Tuple0, dict));
 	});
+var $elm$core$Basics$False = {$: 'False'};
+var $elm$core$Basics$True = {$: 'True'};
+var $elm$core$Maybe$Just = function (a) {
+	return {$: 'Just', a: a};
+};
+var $elm$core$Maybe$Nothing = {$: 'Nothing'};
 var $elm$core$Dict$get = F2(
 	function (targetKey, dict) {
 		get:
@@ -3375,6 +3019,7 @@ var $elm$core$List$isEmpty = function (xs) {
 		return false;
 	}
 };
+var $elm$core$Basics$eq = _Utils_equal;
 var $elm$core$String$isEmpty = function (string) {
 	return string === '';
 };
@@ -3418,10 +3063,38 @@ var $elm_explorations$test$Test$describe = F2(
 			}
 		}
 	});
+var $author$project$Main$envExtend = F3(
+	function (name, value, env) {
+		var _v0 = env.bindings;
+		if (!_v0.b) {
+			return $author$project$Main$Env(
+				_List_fromArray(
+					[
+						A2($author$project$Main$Binding, name, value)
+					]));
+		} else {
+			var f = _v0.a;
+			var r = _v0.b;
+			return _Utils_eq(name, f.name) ? $author$project$Main$Env(
+				A2(
+					$elm$core$List$cons,
+					A2($author$project$Main$Binding, name, value),
+					r)) : $author$project$Main$Env(
+				A2(
+					$elm$core$List$cons,
+					f,
+					A3(
+						$author$project$Main$envExtend,
+						name,
+						value,
+						$author$project$Main$Env(r)).bindings));
+		}
+	});
 var $elm_explorations$test$Test$Runner$Failure$Equality = F2(
 	function (a, b) {
 		return {$: 'Equality', a: a, b: b};
 	});
+var $elm$core$Basics$and = _Basics_and;
 var $elm$core$String$contains = _String_contains;
 var $elm_explorations$test$Test$Runner$Failure$Custom = {$: 'Custom'};
 var $elm_explorations$test$Expect$fail = function (str) {
@@ -3429,6 +3102,7 @@ var $elm_explorations$test$Expect$fail = function (str) {
 		{description: str, reason: $elm_explorations$test$Test$Runner$Failure$Custom});
 };
 var $elm$core$Basics$not = _Basics_not;
+var $elm$core$Basics$or = _Basics_or;
 var $elm_explorations$test$Test$Expectation$Pass = {$: 'Pass'};
 var $elm_explorations$test$Expect$pass = $elm_explorations$test$Test$Expectation$Pass;
 var $elm_explorations$test$Test$Internal$toString = _Debug_toString;
@@ -3466,19 +3140,6 @@ var $elm_explorations$test$Expect$equateWith = F4(
 		return usesFloats ? $elm_explorations$test$Expect$fail(floatError) : A5($elm_explorations$test$Expect$testWith, $elm_explorations$test$Test$Runner$Failure$Equality, reason, comparison, b, a);
 	});
 var $elm_explorations$test$Expect$equal = A2($elm_explorations$test$Expect$equateWith, 'Expect.equal', $elm$core$Basics$eq);
-var $author$project$Main$interp = function (expr) {
-	switch (expr.$) {
-		case 'NumC':
-			var n = expr.a;
-			return $author$project$Main$NumV(n);
-		case 'BoolC':
-			var b = expr.a;
-			return $author$project$Main$BoolV(b);
-		default:
-			var s = expr.a;
-			return $author$project$Main$StringV(s);
-	}
-};
 var $elm_explorations$test$Test$Internal$blankDescriptionFailure = $elm_explorations$test$Test$Internal$failNow(
 	{
 		description: 'This test has a blank description. Let\'s give it a useful one!',
@@ -3498,6 +3159,678 @@ var $elm_explorations$test$Test$test = F2(
 						]);
 				}));
 	});
+var $author$project$Tests$envExtendTests = A2(
+	$elm_explorations$test$Test$describe,
+	'Env Extend',
+	_List_fromArray(
+		[
+			A2(
+			$elm_explorations$test$Test$test,
+			'Empty Env',
+			function (_v0) {
+				return A2(
+					$elm_explorations$test$Expect$equal,
+					$author$project$Main$Env(
+						_List_fromArray(
+							[
+								A2(
+								$author$project$Main$Binding,
+								'+',
+								$author$project$Main$OpV('+'))
+							])),
+					A3(
+						$author$project$Main$envExtend,
+						'+',
+						$author$project$Main$OpV('+'),
+						$author$project$Main$Env(_List_Nil)));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'Adding a new binding on existing env',
+			function (_v1) {
+				return A2(
+					$elm_explorations$test$Expect$equal,
+					$author$project$Main$Env(
+						_List_fromArray(
+							[
+								A2(
+								$author$project$Main$Binding,
+								'hi',
+								$author$project$Main$StringV('hi')),
+								A2(
+								$author$project$Main$Binding,
+								'+',
+								$author$project$Main$OpV('+'))
+							])),
+					A3(
+						$author$project$Main$envExtend,
+						'+',
+						$author$project$Main$OpV('+'),
+						$author$project$Main$Env(
+							_List_fromArray(
+								[
+									A2(
+									$author$project$Main$Binding,
+									'hi',
+									$author$project$Main$StringV('hi'))
+								]))));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'Modifying a binding',
+			function (_v2) {
+				return A2(
+					$elm_explorations$test$Expect$equal,
+					$author$project$Main$Env(
+						_List_fromArray(
+							[
+								A2(
+								$author$project$Main$Binding,
+								'hi',
+								$author$project$Main$StringV('hi')),
+								A2(
+								$author$project$Main$Binding,
+								'+',
+								$author$project$Main$StringV('plus'))
+							])),
+					A3(
+						$author$project$Main$envExtend,
+						'+',
+						$author$project$Main$StringV('plus'),
+						$author$project$Main$Env(
+							_List_fromArray(
+								[
+									A2(
+									$author$project$Main$Binding,
+									'hi',
+									$author$project$Main$StringV('hi')),
+									A2(
+									$author$project$Main$Binding,
+									'+',
+									$author$project$Main$OpV('+'))
+								]))));
+			})
+		]));
+var $author$project$Main$BoolV = function (a) {
+	return {$: 'BoolV', a: a};
+};
+var $author$project$Main$base_env = $author$project$Main$Env(
+	_List_fromArray(
+		[
+			A2(
+			$author$project$Main$Binding,
+			'+',
+			$author$project$Main$OpV('+')),
+			A2(
+			$author$project$Main$Binding,
+			'-',
+			$author$project$Main$OpV('-')),
+			A2(
+			$author$project$Main$Binding,
+			'*',
+			$author$project$Main$OpV('*')),
+			A2(
+			$author$project$Main$Binding,
+			'/',
+			$author$project$Main$OpV('/')),
+			A2(
+			$author$project$Main$Binding,
+			'<=',
+			$author$project$Main$OpV('<=')),
+			A2(
+			$author$project$Main$Binding,
+			'equal?',
+			$author$project$Main$OpV('equal?')),
+			A2(
+			$author$project$Main$Binding,
+			'True',
+			$author$project$Main$BoolV(true)),
+			A2(
+			$author$project$Main$Binding,
+			'False',
+			$author$project$Main$BoolV(false)),
+			A2(
+			$author$project$Main$Binding,
+			'error',
+			$author$project$Main$OpV('error'))
+		]));
+var $author$project$Main$envLookup = F2(
+	function (name, env) {
+		envLookup:
+		while (true) {
+			var _v0 = env.bindings;
+			if (!_v0.b) {
+				return $author$project$Main$StringV('Binding not found');
+			} else {
+				var f = _v0.a;
+				var r = _v0.b;
+				if (_Utils_eq(name, f.name)) {
+					return f.value;
+				} else {
+					var $temp$name = name,
+						$temp$env = $author$project$Main$Env(r);
+					name = $temp$name;
+					env = $temp$env;
+					continue envLookup;
+				}
+			}
+		}
+	});
+var $author$project$Tests$envLookupTests = A2(
+	$elm_explorations$test$Test$describe,
+	'Env Lookup',
+	_List_fromArray(
+		[
+			A2(
+			$elm_explorations$test$Test$test,
+			'Lookup empty',
+			function (_v0) {
+				return A2(
+					$elm_explorations$test$Expect$equal,
+					$author$project$Main$StringV('Binding not found'),
+					A2(
+						$author$project$Main$envLookup,
+						'+',
+						$author$project$Main$Env(_List_Nil)));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'Lookup a value',
+			function (_v1) {
+				return A2(
+					$elm_explorations$test$Expect$equal,
+					$author$project$Main$OpV('+'),
+					A2($author$project$Main$envLookup, '+', $author$project$Main$base_env));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'Lookup another value',
+			function (_v2) {
+				return A2(
+					$elm_explorations$test$Expect$equal,
+					$author$project$Main$BoolV(false),
+					A2($author$project$Main$envLookup, 'False', $author$project$Main$base_env));
+			})
+		]));
+var $elm$json$Json$Decode$Failure = F2(
+	function (a, b) {
+		return {$: 'Failure', a: a, b: b};
+	});
+var $elm$json$Json$Decode$Field = F2(
+	function (a, b) {
+		return {$: 'Field', a: a, b: b};
+	});
+var $elm$json$Json$Decode$Index = F2(
+	function (a, b) {
+		return {$: 'Index', a: a, b: b};
+	});
+var $elm$json$Json$Decode$OneOf = function (a) {
+	return {$: 'OneOf', a: a};
+};
+var $elm$core$String$all = _String_all;
+var $elm$json$Json$Encode$encode = _Json_encode;
+var $elm$core$String$fromInt = _String_fromNumber;
+var $elm$core$String$join = F2(
+	function (sep, chunks) {
+		return A2(
+			_String_join,
+			sep,
+			_List_toArray(chunks));
+	});
+var $elm$core$String$split = F2(
+	function (sep, string) {
+		return _List_fromArray(
+			A2(_String_split, sep, string));
+	});
+var $elm$json$Json$Decode$indent = function (str) {
+	return A2(
+		$elm$core$String$join,
+		'\n    ',
+		A2($elm$core$String$split, '\n', str));
+};
+var $elm$core$List$length = function (xs) {
+	return A3(
+		$elm$core$List$foldl,
+		F2(
+			function (_v0, i) {
+				return i + 1;
+			}),
+		0,
+		xs);
+};
+var $elm$core$List$map2 = _List_map2;
+var $elm$core$Basics$le = _Utils_le;
+var $elm$core$Basics$sub = _Basics_sub;
+var $elm$core$List$rangeHelp = F3(
+	function (lo, hi, list) {
+		rangeHelp:
+		while (true) {
+			if (_Utils_cmp(lo, hi) < 1) {
+				var $temp$lo = lo,
+					$temp$hi = hi - 1,
+					$temp$list = A2($elm$core$List$cons, hi, list);
+				lo = $temp$lo;
+				hi = $temp$hi;
+				list = $temp$list;
+				continue rangeHelp;
+			} else {
+				return list;
+			}
+		}
+	});
+var $elm$core$List$range = F2(
+	function (lo, hi) {
+		return A3($elm$core$List$rangeHelp, lo, hi, _List_Nil);
+	});
+var $elm$core$List$indexedMap = F2(
+	function (f, xs) {
+		return A3(
+			$elm$core$List$map2,
+			f,
+			A2(
+				$elm$core$List$range,
+				0,
+				$elm$core$List$length(xs) - 1),
+			xs);
+	});
+var $elm$core$Char$toCode = _Char_toCode;
+var $elm$core$Char$isLower = function (_char) {
+	var code = $elm$core$Char$toCode(_char);
+	return (97 <= code) && (code <= 122);
+};
+var $elm$core$Char$isUpper = function (_char) {
+	var code = $elm$core$Char$toCode(_char);
+	return (code <= 90) && (65 <= code);
+};
+var $elm$core$Char$isAlpha = function (_char) {
+	return $elm$core$Char$isLower(_char) || $elm$core$Char$isUpper(_char);
+};
+var $elm$core$Char$isDigit = function (_char) {
+	var code = $elm$core$Char$toCode(_char);
+	return (code <= 57) && (48 <= code);
+};
+var $elm$core$Char$isAlphaNum = function (_char) {
+	return $elm$core$Char$isLower(_char) || ($elm$core$Char$isUpper(_char) || $elm$core$Char$isDigit(_char));
+};
+var $elm$core$String$uncons = _String_uncons;
+var $elm$json$Json$Decode$errorOneOf = F2(
+	function (i, error) {
+		return '\n\n(' + ($elm$core$String$fromInt(i + 1) + (') ' + $elm$json$Json$Decode$indent(
+			$elm$json$Json$Decode$errorToString(error))));
+	});
+var $elm$json$Json$Decode$errorToString = function (error) {
+	return A2($elm$json$Json$Decode$errorToStringHelp, error, _List_Nil);
+};
+var $elm$json$Json$Decode$errorToStringHelp = F2(
+	function (error, context) {
+		errorToStringHelp:
+		while (true) {
+			switch (error.$) {
+				case 'Field':
+					var f = error.a;
+					var err = error.b;
+					var isSimple = function () {
+						var _v1 = $elm$core$String$uncons(f);
+						if (_v1.$ === 'Nothing') {
+							return false;
+						} else {
+							var _v2 = _v1.a;
+							var _char = _v2.a;
+							var rest = _v2.b;
+							return $elm$core$Char$isAlpha(_char) && A2($elm$core$String$all, $elm$core$Char$isAlphaNum, rest);
+						}
+					}();
+					var fieldName = isSimple ? ('.' + f) : ('[\'' + (f + '\']'));
+					var $temp$error = err,
+						$temp$context = A2($elm$core$List$cons, fieldName, context);
+					error = $temp$error;
+					context = $temp$context;
+					continue errorToStringHelp;
+				case 'Index':
+					var i = error.a;
+					var err = error.b;
+					var indexName = '[' + ($elm$core$String$fromInt(i) + ']');
+					var $temp$error = err,
+						$temp$context = A2($elm$core$List$cons, indexName, context);
+					error = $temp$error;
+					context = $temp$context;
+					continue errorToStringHelp;
+				case 'OneOf':
+					var errors = error.a;
+					if (!errors.b) {
+						return 'Ran into a Json.Decode.oneOf with no possibilities' + function () {
+							if (!context.b) {
+								return '!';
+							} else {
+								return ' at json' + A2(
+									$elm$core$String$join,
+									'',
+									$elm$core$List$reverse(context));
+							}
+						}();
+					} else {
+						if (!errors.b.b) {
+							var err = errors.a;
+							var $temp$error = err,
+								$temp$context = context;
+							error = $temp$error;
+							context = $temp$context;
+							continue errorToStringHelp;
+						} else {
+							var starter = function () {
+								if (!context.b) {
+									return 'Json.Decode.oneOf';
+								} else {
+									return 'The Json.Decode.oneOf at json' + A2(
+										$elm$core$String$join,
+										'',
+										$elm$core$List$reverse(context));
+								}
+							}();
+							var introduction = starter + (' failed in the following ' + ($elm$core$String$fromInt(
+								$elm$core$List$length(errors)) + ' ways:'));
+							return A2(
+								$elm$core$String$join,
+								'\n\n',
+								A2(
+									$elm$core$List$cons,
+									introduction,
+									A2($elm$core$List$indexedMap, $elm$json$Json$Decode$errorOneOf, errors)));
+						}
+					}
+				default:
+					var msg = error.a;
+					var json = error.b;
+					var introduction = function () {
+						if (!context.b) {
+							return 'Problem with the given value:\n\n';
+						} else {
+							return 'Problem with the value at json' + (A2(
+								$elm$core$String$join,
+								'',
+								$elm$core$List$reverse(context)) + ':\n\n    ');
+						}
+					}();
+					return introduction + ($elm$json$Json$Decode$indent(
+						A2($elm$json$Json$Encode$encode, 4, json)) + ('\n\n' + msg));
+			}
+		}
+	});
+var $elm$core$Array$branchFactor = 32;
+var $elm$core$Array$Array_elm_builtin = F4(
+	function (a, b, c, d) {
+		return {$: 'Array_elm_builtin', a: a, b: b, c: c, d: d};
+	});
+var $elm$core$Elm$JsArray$empty = _JsArray_empty;
+var $elm$core$Basics$ceiling = _Basics_ceiling;
+var $elm$core$Basics$fdiv = _Basics_fdiv;
+var $elm$core$Basics$logBase = F2(
+	function (base, number) {
+		return _Basics_log(number) / _Basics_log(base);
+	});
+var $elm$core$Basics$toFloat = _Basics_toFloat;
+var $elm$core$Array$shiftStep = $elm$core$Basics$ceiling(
+	A2($elm$core$Basics$logBase, 2, $elm$core$Array$branchFactor));
+var $elm$core$Array$empty = A4($elm$core$Array$Array_elm_builtin, 0, $elm$core$Array$shiftStep, $elm$core$Elm$JsArray$empty, $elm$core$Elm$JsArray$empty);
+var $elm$core$Elm$JsArray$initialize = _JsArray_initialize;
+var $elm$core$Array$Leaf = function (a) {
+	return {$: 'Leaf', a: a};
+};
+var $elm$core$Basics$floor = _Basics_floor;
+var $elm$core$Elm$JsArray$length = _JsArray_length;
+var $elm$core$Basics$max = F2(
+	function (x, y) {
+		return (_Utils_cmp(x, y) > 0) ? x : y;
+	});
+var $elm$core$Basics$mul = _Basics_mul;
+var $elm$core$Array$SubTree = function (a) {
+	return {$: 'SubTree', a: a};
+};
+var $elm$core$Elm$JsArray$initializeFromList = _JsArray_initializeFromList;
+var $elm$core$Array$compressNodes = F2(
+	function (nodes, acc) {
+		compressNodes:
+		while (true) {
+			var _v0 = A2($elm$core$Elm$JsArray$initializeFromList, $elm$core$Array$branchFactor, nodes);
+			var node = _v0.a;
+			var remainingNodes = _v0.b;
+			var newAcc = A2(
+				$elm$core$List$cons,
+				$elm$core$Array$SubTree(node),
+				acc);
+			if (!remainingNodes.b) {
+				return $elm$core$List$reverse(newAcc);
+			} else {
+				var $temp$nodes = remainingNodes,
+					$temp$acc = newAcc;
+				nodes = $temp$nodes;
+				acc = $temp$acc;
+				continue compressNodes;
+			}
+		}
+	});
+var $elm$core$Tuple$first = function (_v0) {
+	var x = _v0.a;
+	return x;
+};
+var $elm$core$Array$treeFromBuilder = F2(
+	function (nodeList, nodeListSize) {
+		treeFromBuilder:
+		while (true) {
+			var newNodeSize = $elm$core$Basics$ceiling(nodeListSize / $elm$core$Array$branchFactor);
+			if (newNodeSize === 1) {
+				return A2($elm$core$Elm$JsArray$initializeFromList, $elm$core$Array$branchFactor, nodeList).a;
+			} else {
+				var $temp$nodeList = A2($elm$core$Array$compressNodes, nodeList, _List_Nil),
+					$temp$nodeListSize = newNodeSize;
+				nodeList = $temp$nodeList;
+				nodeListSize = $temp$nodeListSize;
+				continue treeFromBuilder;
+			}
+		}
+	});
+var $elm$core$Array$builderToArray = F2(
+	function (reverseNodeList, builder) {
+		if (!builder.nodeListSize) {
+			return A4(
+				$elm$core$Array$Array_elm_builtin,
+				$elm$core$Elm$JsArray$length(builder.tail),
+				$elm$core$Array$shiftStep,
+				$elm$core$Elm$JsArray$empty,
+				builder.tail);
+		} else {
+			var treeLen = builder.nodeListSize * $elm$core$Array$branchFactor;
+			var depth = $elm$core$Basics$floor(
+				A2($elm$core$Basics$logBase, $elm$core$Array$branchFactor, treeLen - 1));
+			var correctNodeList = reverseNodeList ? $elm$core$List$reverse(builder.nodeList) : builder.nodeList;
+			var tree = A2($elm$core$Array$treeFromBuilder, correctNodeList, builder.nodeListSize);
+			return A4(
+				$elm$core$Array$Array_elm_builtin,
+				$elm$core$Elm$JsArray$length(builder.tail) + treeLen,
+				A2($elm$core$Basics$max, 5, depth * $elm$core$Array$shiftStep),
+				tree,
+				builder.tail);
+		}
+	});
+var $elm$core$Basics$idiv = _Basics_idiv;
+var $elm$core$Basics$lt = _Utils_lt;
+var $elm$core$Array$initializeHelp = F5(
+	function (fn, fromIndex, len, nodeList, tail) {
+		initializeHelp:
+		while (true) {
+			if (fromIndex < 0) {
+				return A2(
+					$elm$core$Array$builderToArray,
+					false,
+					{nodeList: nodeList, nodeListSize: (len / $elm$core$Array$branchFactor) | 0, tail: tail});
+			} else {
+				var leaf = $elm$core$Array$Leaf(
+					A3($elm$core$Elm$JsArray$initialize, $elm$core$Array$branchFactor, fromIndex, fn));
+				var $temp$fn = fn,
+					$temp$fromIndex = fromIndex - $elm$core$Array$branchFactor,
+					$temp$len = len,
+					$temp$nodeList = A2($elm$core$List$cons, leaf, nodeList),
+					$temp$tail = tail;
+				fn = $temp$fn;
+				fromIndex = $temp$fromIndex;
+				len = $temp$len;
+				nodeList = $temp$nodeList;
+				tail = $temp$tail;
+				continue initializeHelp;
+			}
+		}
+	});
+var $elm$core$Basics$remainderBy = _Basics_remainderBy;
+var $elm$core$Array$initialize = F2(
+	function (len, fn) {
+		if (len <= 0) {
+			return $elm$core$Array$empty;
+		} else {
+			var tailLen = len % $elm$core$Array$branchFactor;
+			var tail = A3($elm$core$Elm$JsArray$initialize, tailLen, len - tailLen, fn);
+			var initialFromIndex = (len - tailLen) - $elm$core$Array$branchFactor;
+			return A5($elm$core$Array$initializeHelp, fn, initialFromIndex, len, _List_Nil, tail);
+		}
+	});
+var $elm$core$Result$isOk = function (result) {
+	if (result.$ === 'Ok') {
+		return true;
+	} else {
+		return false;
+	}
+};
+var $elm$json$Json$Decode$int = _Json_decodeInt;
+var $author$project$Main$BoolC = function (a) {
+	return {$: 'BoolC', a: a};
+};
+var $author$project$Main$NumC = function (a) {
+	return {$: 'NumC', a: a};
+};
+var $author$project$Main$NumV = function (a) {
+	return {$: 'NumV', a: a};
+};
+var $author$project$Main$StringC = function (a) {
+	return {$: 'StringC', a: a};
+};
+var $elm_explorations$test$Test$Runner$Failure$ListDiff = F2(
+	function (a, b) {
+		return {$: 'ListDiff', a: a, b: b};
+	});
+var $elm_explorations$test$Expect$equalLists = F2(
+	function (expected, actual) {
+		return _Utils_eq(expected, actual) ? $elm_explorations$test$Expect$pass : $elm_explorations$test$Test$Expectation$fail(
+			{
+				description: 'Expect.equalLists',
+				reason: A2(
+					$elm_explorations$test$Test$Runner$Failure$ListDiff,
+					A2($elm$core$List$map, $elm_explorations$test$Test$Internal$toString, expected),
+					A2($elm$core$List$map, $elm_explorations$test$Test$Internal$toString, actual))
+			});
+	});
+var $author$project$Main$interp = F2(
+	function (expr, env) {
+		interp:
+		while (true) {
+			switch (expr.$) {
+				case 'NumC':
+					var n = expr.a;
+					return $author$project$Main$NumV(n);
+				case 'BoolC':
+					var b = expr.a;
+					return $author$project$Main$BoolV(b);
+				case 'StringC':
+					var s = expr.a;
+					return $author$project$Main$StringV(s);
+				case 'IfC':
+					var condition = expr.a;
+					var ifTrue = expr.b;
+					var ifFalse = expr.c;
+					var _v2 = A2($author$project$Main$interp, condition, env);
+					if (_v2.$ === 'BoolV') {
+						var b = _v2.a;
+						if (b) {
+							var $temp$expr = ifTrue,
+								$temp$env = env;
+							expr = $temp$expr;
+							env = $temp$env;
+							continue interp;
+						} else {
+							var $temp$expr = ifFalse,
+								$temp$env = env;
+							expr = $temp$expr;
+							env = $temp$env;
+							continue interp;
+						}
+					} else {
+						return $author$project$Main$StringV('Error Placeholder (Cond not a bool)');
+					}
+				default:
+					var p = expr.a;
+					var b = expr.b;
+					var _v3 = A2($author$project$Main$interp, b, env);
+					switch (_v3.$) {
+						case 'CloV':
+							var param = _v3.a;
+							var body = _v3.b;
+							var cloEnv = _v3.c;
+							var args = A2($author$project$Main$interp_all_args, p, env);
+							return _Utils_eq(
+								$elm$core$List$length(args),
+								$elm$core$List$length(param)) ? $author$project$Main$StringV('Working on this') : $author$project$Main$StringV('Invalid number of arguments passed');
+						case 'OpV':
+							var op = _v3.a;
+							return $author$project$Main$StringV('Arithmetic Logic Here');
+						default:
+							return $author$project$Main$StringV('Invalid Function Application');
+					}
+			}
+		}
+	});
+var $author$project$Main$interp_all_args = F2(
+	function (args, env) {
+		if (!args.b) {
+			return _List_Nil;
+		} else {
+			var f = args.a;
+			var r = args.b;
+			return A2(
+				$elm$core$List$cons,
+				A2($author$project$Main$interp, f, env),
+				A2($author$project$Main$interp_all_args, r, env));
+		}
+	});
+var $author$project$Tests$interpAllArgsTests = A2(
+	$elm_explorations$test$Test$describe,
+	'Interp All Args',
+	_List_fromArray(
+		[
+			A2(
+			$elm_explorations$test$Test$test,
+			'interp all',
+			function (_v0) {
+				return A2(
+					$elm_explorations$test$Expect$equalLists,
+					_List_fromArray(
+						[
+							$author$project$Main$NumV(4),
+							$author$project$Main$StringV('hi'),
+							$author$project$Main$BoolV(true)
+						]),
+					A2(
+						$author$project$Main$interp_all_args,
+						_List_fromArray(
+							[
+								$author$project$Main$NumC(4),
+								$author$project$Main$StringC('hi'),
+								$author$project$Main$BoolC(true)
+							]),
+						$author$project$Main$base_env));
+			})
+		]));
+var $author$project$Main$IfC = F3(
+	function (a, b, c) {
+		return {$: 'IfC', a: a, b: b, c: c};
+	});
 var $author$project$Tests$interpTests = A2(
 	$elm_explorations$test$Test$describe,
 	'Interp',
@@ -3510,8 +3843,10 @@ var $author$project$Tests$interpTests = A2(
 				return A2(
 					$elm_explorations$test$Expect$equal,
 					$author$project$Main$NumV(4),
-					$author$project$Main$interp(
-						$author$project$Main$NumC(4)));
+					A2(
+						$author$project$Main$interp,
+						$author$project$Main$NumC(4),
+						$author$project$Main$base_env));
 			}),
 			A2(
 			$elm_explorations$test$Test$test,
@@ -3520,8 +3855,10 @@ var $author$project$Tests$interpTests = A2(
 				return A2(
 					$elm_explorations$test$Expect$equal,
 					$author$project$Main$StringV('Hey!'),
-					$author$project$Main$interp(
-						$author$project$Main$StringC('Hey!')));
+					A2(
+						$author$project$Main$interp,
+						$author$project$Main$StringC('Hey!'),
+						$author$project$Main$base_env));
 			}),
 			A2(
 			$elm_explorations$test$Test$test,
@@ -3530,8 +3867,26 @@ var $author$project$Tests$interpTests = A2(
 				return A2(
 					$elm_explorations$test$Expect$equal,
 					$author$project$Main$BoolV(true),
-					$author$project$Main$interp(
-						$author$project$Main$BoolC(true)));
+					A2(
+						$author$project$Main$interp,
+						$author$project$Main$BoolC(true),
+						$author$project$Main$base_env));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'interp IfC',
+			function (_v3) {
+				return A2(
+					$elm_explorations$test$Expect$equal,
+					$author$project$Main$NumV(1),
+					A2(
+						$author$project$Main$interp,
+						A3(
+							$author$project$Main$IfC,
+							$author$project$Main$BoolC(true),
+							$author$project$Main$NumC(1),
+							$author$project$Main$NumC(2)),
+						$author$project$Main$base_env));
 			})
 		]));
 var $author$project$Test$Runner$Node$Receive = function (a) {
@@ -6552,6 +6907,10 @@ var $author$project$Test$Runner$Node$run = F2(
 				});
 		}
 	});
+var $author$project$Main$CloV = F3(
+	function (a, b, c) {
+		return {$: 'CloV', a: a, b: b, c: c};
+	});
 var $author$project$Main$stringFromBool = function (value) {
 	return value ? 'True' : 'False';
 };
@@ -6563,9 +6922,17 @@ var $author$project$Main$serialize = function (val) {
 		case 'BoolV':
 			var b = val.a;
 			return $author$project$Main$stringFromBool(b);
-		default:
+		case 'StringV':
 			var s = val.a;
 			return s;
+		case 'CloV':
+			var p = val.a;
+			var b = val.b;
+			var e = val.c;
+			return '#<procedure>';
+		default:
+			var op = val.a;
+			return '#<primop>';
 	}
 };
 var $author$project$Tests$serializeTests = A2(
@@ -6602,6 +6969,55 @@ var $author$project$Tests$serializeTests = A2(
 					'True',
 					$author$project$Main$serialize(
 						$author$project$Main$BoolV(true)));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'serialize IfC',
+			function (_v3) {
+				return A2(
+					$elm_explorations$test$Expect$equal,
+					'1',
+					$author$project$Main$serialize(
+						A2(
+							$author$project$Main$interp,
+							A3(
+								$author$project$Main$IfC,
+								$author$project$Main$BoolC(true),
+								$author$project$Main$NumC(1),
+								$author$project$Main$NumC(2)),
+							$author$project$Main$base_env)));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'serialize CloV',
+			function (_v4) {
+				return A2(
+					$elm_explorations$test$Expect$equal,
+					'#<procedure>',
+					$author$project$Main$serialize(
+						A3(
+							$author$project$Main$CloV,
+							_List_fromArray(
+								['Hello', 'Yall']),
+							$author$project$Main$NumC(1),
+							$author$project$Main$Env(
+								_List_fromArray(
+									[
+										A2(
+										$author$project$Main$Binding,
+										'+',
+										$author$project$Main$NumV(3))
+									])))));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'serialize OpV',
+			function (_v5) {
+				return A2(
+					$elm_explorations$test$Expect$equal,
+					'#<primop>',
+					$author$project$Main$serialize(
+						$author$project$Main$OpV('+')));
 			})
 		]));
 var $author$project$Test$Generated$Main$main = A2(
@@ -6609,11 +7025,11 @@ var $author$project$Test$Generated$Main$main = A2(
 	{
 		globs: _List_Nil,
 		paths: _List_fromArray(
-			['/Users/alexhartford/School/430/a9/tests/Tests.elm']),
-		processes: 8,
+			['/Users/salito/Documents/GitHub/elm-interp/tests/Tests.elm']),
+		processes: 10,
 		report: $author$project$Test$Reporter$Reporter$ConsoleReport($author$project$Console$Text$UseColor),
 		runs: 100,
-		seed: 47356781986363
+		seed: 10600922488107
 	},
 	_List_fromArray(
 		[
@@ -6622,13 +7038,16 @@ var $author$project$Test$Generated$Main$main = A2(
 			_List_fromArray(
 				[
 					$author$project$Test$Runner$Node$check($author$project$Tests$interpTests),
+					$author$project$Test$Runner$Node$check($author$project$Tests$envLookupTests),
+					$author$project$Test$Runner$Node$check($author$project$Tests$envExtendTests),
+					$author$project$Test$Runner$Node$check($author$project$Tests$interpAllArgsTests),
 					$author$project$Test$Runner$Node$check($author$project$Tests$serializeTests)
 				]))
 		]));
 _Platform_export({'Test':{'Generated':{'Main':{'init':$author$project$Test$Generated$Main$main($elm$json$Json$Decode$int)(0)}}}});}(this));
 return this.Elm;
 })({});
-var pipeFilename = "/tmp/elm_test-7159.sock";
+var pipeFilename = "/tmp/elm_test-18183.sock";
 var net = require('net'),
   client = net.createConnection(pipeFilename);
 
